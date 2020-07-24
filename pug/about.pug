@@ -1,0 +1,114 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name='viewport' content="width=device-width, minimum-scale=1.0, user-scalable=no")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        title About us
+        link(href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css")
+        link(rel="stylesheet" href="css/style.css")
+    body
+       <!-- ======== Header ======== -->
+        include includes/header-dark.pug  
+
+        .title-img
+            .container.title-img__container about us
+        <!-- ======== Mission ======== -->
+        section.mission
+            .mission__container.container
+                div(class="title")
+                    h1(class="title__heading") We are a Small Team Doing Big Things!
+                    p(class="title__text") Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, odit? Impedit, maiores! Vero, #[br] aspernatur inventore. adipisicing elit. Asperiores, odit? Impedit, maiores! 
+                .mission__content
+                    .mission__item
+                        h3.mission__title mission statement
+                        p.mission__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod tenetur quas deleniti vel hic et, voluptas deserunt ut est voluptatum, consequatur repudiandae earum autem accusantium, magnam possimus reprehenderit dolorum ullam. Velit officiis consequuntur iusto itaque vel aliquam incidunt sapiente ab?
+                    .mission__item
+                        h3.mission__title core values
+                        p.mission__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod tenetur quas deleniti vel hic et, voluptas deserunt ut est voluptatum, consequatur repudiandae earum autem accusantium, magnam possimus reprehenderit dolorum ullam. Velit officiis consequuntur iusto itaque vel aliquam incidunt sapiente ab?
+                    .mission__item
+                        h3.mission__title why choose us
+                        p.mission__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod tenetur quas deleniti vel hic et, voluptas deserunt ut est voluptatum, consequatur repudiandae earum autem accusantium, magnam possimus reprehenderit dolorum ullam. Velit officiis consequuntur iusto itaque vel aliquam incidunt sapiente ab?
+        section.about-team
+            .container
+                div(class="title")
+                    h1(class="title__heading") meet our team
+                    p(class="title__text") Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, odit? Impedit, maiores! Vero, #[br] aspernatur inventore. adipisicing elit. Asperiores, odit? Impedit, maiores! 
+                .about-team__content
+                    .about-team__item
+                        .about-team__img
+                            img(src="img/about/photo-1.png" height="270")
+                        .about-team__name lily turner
+                        .about-team__prof President
+                        p.about-team__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores porro reprehenderit eos quia sint assumenda?
+                        .about-team-social
+                            .about-team-social__item
+                                img(src="img/about/twitter.png" height="17")
+                            .about-team-social__item
+                                img(src="img/about/facebook.png" height="17")
+                            .about-team-social__item
+                                img(src="img/about/rss.png" height="17")
+                    .about-team__item
+                        .about-team__img
+                            img(src="img/about/photo-2.png" height="270")
+                        .about-team__name britney hunter
+                        .about-team__prof Designer
+                        p.about-team__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores porro reprehenderit eos quia sint assumenda?
+                        .about-team-social
+                            .about-team-social__item
+                                img(src="img/about/twitter.png" height="17")
+                            .about-team-social__item
+                                img(src="img/about/facebook.png" height="17")
+                            .about-team-social__item
+                                img(src="img/about/rss.png" height="17")
+                    .about-team__item
+                        .about-team__img
+                            img(src="img/about/photo-3.png" height="270")
+                        .about-team__name john smith
+                        .about-team__prof Programmer
+                        p.about-team__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores porro reprehenderit eos quia sint assumenda?
+                        .about-team-social
+                            .about-team-social__item
+                                img(src="img/about/twitter.png" height="17")
+                            .about-team-social__item
+                                img(src="img/about/facebook.png" height="17")
+                            .about-team-social__item
+                                img(src="img/about/rss.png" height="17")
+                    .about-team__item
+                        .about-team__img
+                            img(src="img/about/photo-4.png" height="270")
+                        .about-team__name jessica black
+                        .about-team__prof Human resources
+                        p.about-team__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores porro reprehenderit eos quia sint assumenda?
+                        .about-team-social
+                            .about-team-social__item
+                                img(src="img/about/twitter.png" height="17")
+                            .about-team-social__item
+                                img(src="img/about/facebook.png" height="17")
+                            .about-team-social__item
+                                img(src="img/about/rss.png" height="17")
+        section.about-join-us
+            div(class="title")
+                h1(class="title__heading") if you like what you see, join us!
+                p(class="title__text") Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, odit? Impedit, maiores! Vero, #[br] aspernatur inventore. adipisicing elit. Asperiores, odit? Impedit, maiores! 
+            div.about-join-us__btn
+                button.btn.btn--alt apply today
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ======== Footer ======== -->
+        include includes/footer.pug  
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js")
+        script(src="js/main.js")
+        <!-- ======== Icons made by "https://www.flaticon.com/authors/pixel-perfect"   ======== -->

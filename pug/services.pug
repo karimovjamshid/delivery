@@ -1,0 +1,126 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name='viewport' content="width=device-width, minimum-scale=1.0, user-scalable=no")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        title Our services
+        link(href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="css/style.css")
+    body
+        <!-- ======== Header ======== -->
+        include includes/header-dark.pug  
+
+        .title-img
+            .container.title-img__container Our services
+        section.our-services
+            .our-services__container.container
+                div(class="title title--helper")
+                    h1(class="title__heading") Check out our awesome services
+                    p(class="title__text") Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, odit? Impedit, maiores! Vero, #[br] aspernatur inventore. adipisicing elit. Asperiores, odit? Impedit, maiores! 
+                .our-services-top
+                    .our-services-top__item
+                        .our-services-top__icon
+                            img(src="img/services/icon-1.png" height="60" alt="icon")
+                        .our-services-top__content
+                            h3.our-services-top__h3 Service title 1
+                            p.our-services-top__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi excepturi, minima ipsam obcaecati velit aut repudiandae omnis accusamus architecto ex?
+                    .our-services-top__item
+                        .our-services-top__icon
+                            img(src="img/services/icon-2.png" height="60" alt="icon")
+                        .our-services-top__content
+                            h3.our-services-top__h3 Service title 2
+                            p.our-services-top__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi excepturi, minima ipsam obcaecati velit aut repudiandae omnis accusamus architecto ex?
+                    .our-services-top__item
+                        .our-services-top__icon
+                            img(src="img/services/icon-3.png" height="60" alt="icon")
+                        .our-services-top__content
+                            h3.our-services-top__h3 Service title 3
+                            p.our-services-top__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi excepturi, minima ipsam obcaecati velit aut repudiandae omnis accusamus architecto ex?
+                    .our-services-top__item
+                        .our-services-top__icon
+                            img(src="img/services/icon-4.png" height="60" alt="icon")
+                        .our-services-top__content
+                            h3.our-services-top__h3 Service title 4
+                            p.our-services-top__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi excepturi, minima ipsam obcaecati velit aut repudiandae omnis accusamus architecto ex?
+                    .our-services-top__item
+                        .our-services-top__icon
+                            img(src="img/services/icon-5.png" height="60" alt="icon")
+                        .our-services-top__content
+                            h3.our-services-top__h3 Service title 5
+                            p.our-services-top__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi excepturi, minima ipsam obcaecati velit aut repudiandae omnis accusamus architecto ex?
+                    .our-services-top__item
+                        .our-services-top__icon
+                            img(src="img/services/icon-6.png" height="60" alt="icon")
+                        .our-services-top__content
+                            h3.our-services-top__h3 Service title 6
+                            p.our-services-top__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi excepturi, minima ipsam obcaecati velit aut repudiandae omnis accusamus architecto ex?
+            .our-services-middle
+                .container
+                    div(class="title")
+                        h1(class="title__heading") pricing table example
+                        p(class="title__text") Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, odit? Impedit, maiores! Vero, #[br] aspernatur inventore. adipisicing elit. Asperiores, odit? Impedit, maiores! 
+                    .our-services-middle__content
+                        .our-services-middle__item
+                            h3.our-services-middle__h3 basic
+                            span.our-services-middle__price $999
+                            .our-services-middle__text custom design
+                            .our-services-middle__text 3 or less pages
+                            .our-services-middle__text basic seo
+                            .our-services-middle__text contact form
+                            .our-services-middle__text updates allowed
+                            .our-services-middle__footer
+                                button.btn.btn--sm full details
+                        .our-services-middle__item
+                            h3.our-services-middle__h3 standard
+                            span.our-services-middle__price $1799
+                            .our-services-middle__text choice of templates
+                            .our-services-middle__text 5 to 10 pages
+                            .our-services-middle__text Basic seo
+                            .our-services-middle__text Contact form
+                            .our-services-middle__text training included
+                            .our-services-middle__footer
+                                button.btn.btn--sm full details
+                        .our-services-middle__item
+                            h3.our-services-middle__h3 premium
+                            span.our-services-middle__price $3499
+                            .our-services-middle__text Custom Design
+                            .our-services-middle__text Unlimited pages
+                            .our-services-middle__text Wordpress/ CMS
+                            .our-services-middle__text Advanced SEO
+                            .our-services-middle__text Contact form
+                            .our-services-middle__footer
+                                button.btn.btn--sm full details
+                        .our-services-middle__item
+                            h3.our-services-middle__h3 custom
+                            span.our-services-middle__price $?
+                            .our-services-middle__text Custom Design
+                            .our-services-middle__text Unlimited pages
+                            .our-services-middle__text Wordpress/ CMS
+                            .our-services-middle__text Custom functionality
+                            .our-services-middle__text Contact form
+                            .our-services-middle__footer
+                                button.btn.btn--sm full details
+            .our-services-bottom
+                .our-services-bottom__content.container
+                    .our-services-bottom__item
+                        h3.our-services-bottom__h3 good to know 
+                        p.our-services-bottom__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit architecto fuga blanditiis culpa maxime repudiandae nemo sapiente corporis explicabo nihil reiciendis dolores tempora odio ullam, ut a eos magni quaerat! Modi sapiente voluptatum odit rerum eaque, ab tenetur facilis nulla?
+                    .our-services-bottom__item
+                        h3.our-services-bottom__h3 cool feature
+                        p.our-services-bottom__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit architecto fuga blanditiis culpa maxime repudiandae nemo sapiente corporis explicabo nihil reiciendis dolores tempora odio ullam, ut a eos magni quaerat! Modi sapiente voluptatum odit rerum eaque, ab tenetur facilis nulla?
+                    .our-services-bottom__item
+                        h3.our-services-bottom__h3 something else to know 
+                        p.our-services-bottom__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit architecto fuga blanditiis culpa maxime repudiandae nemo sapiente corporis explicabo nihil reiciendis dolores tempora odio ullam, ut a eos magni quaerat! Modi sapiente voluptatum odit rerum eaque, ab tenetur facilis nulla?
+            .container
+                div(class="title")
+                    h1(class="title__heading") Do you need a theme?
+                    p(class="title__text") Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, odit? Impedit, maiores! Vero, #[br] aspernatur inventore. adipisicing elit. Asperiores, odit? Impedit, maiores! 
+                    button.btn.btn--alt purchase
+
+
+        <!-- ======== Footer ======== -->
+        include includes/footer.pug  
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+        script(src="js/main.js")
+        <!-- ======== Icons made by "https://www.flaticon.com/authors/pixel-perfect"   ======== -->           

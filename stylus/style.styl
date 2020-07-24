@@ -1,0 +1,1457 @@
+@import 'mixins.styl';
+@import 'general.styl';
+@import 'vars.styl';
+
+.logo{
+    font-family $logo   
+    font-size rem(32) 
+    color $white
+    &--dark{
+        color $dark    
+    }
+}
+.btn{
+    background-color transparent
+    border 1px solid $white
+    padding .5em 1.5em
+    font-family $text
+    font-size rem(18)
+    color $white
+    font-weight 500
+    text-transform uppercase
+    transition all .3s linear
+    &:hover{
+        background-color $accent
+        border-color $accent
+        cursor pointer
+        box-shadow 1px 1px 12px 2px $accent
+    }
+    &--alt{
+        background-color $accent
+        margin-top 1.5rem
+    }
+    &--sm{
+        font-size rem(15)
+        padding .5em 1em
+        background-color lighten($accent, 30%)
+        border none
+        &:hover{
+           background-color lighten($accent, 50%) 
+        }
+    }
+}
+
+.title{
+    text-align center
+    &__heading{
+        font-family $heading
+        font-size rem(28)
+        color $dark
+        font-weight 500  
+        line-height 2  
+        text-transform uppercase
+        
+        @media(max-width $mobile){
+            font-size rem(22)
+        }
+    }    
+    &__text{
+        font-family $text
+        font-size 1rem
+        color $gray
+        font-weight 400  
+        line-height 1.3  
+    }   
+    &--helper{
+        padding-bottom 3rem
+        border-bottom 1px solid $gray    
+    } 
+    &--helper2{
+        padding-top 2rem
+        border-top 1px solid $gray    
+    } 
+}
+
+/* Header
+===================*/
+.header{
+    position absolute
+    top 0
+    left 0
+    right 0
+    z-index 1000
+    &-container{
+        @media (max-width: $tablet){
+            width 100vw 
+            background-color $dark
+            height 100vh
+            padding-top 3rem
+            box-sizing border-box
+            margin-left -100vw
+            transition margin-left .5s linear
+            position absolute
+            top 0
+            right 0
+            left 0
+        }    
+    }
+    &__top{
+        
+        display: flex
+        justify-content space-between  
+        align-items center
+        border-bottom 1px solid $white
+        padding rem(17) 0
+        @media (max-width: $tablet){
+            padding-top 1rem
+        }
+        &--dark{
+            border-color $dark    
+        }
+    }
+    &__bottom{
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        padding-top rem(17)
+        @media (max-width: $tablet){
+            justify-content center 
+        }
+    }
+    &__nav{
+        width 80%
+        display flex
+        justify-content space-between
+        @media (max-width: $tablet){
+            flex-direction column 
+            align-items center
+            width 100%  
+            padding-top 1rem
+        }
+        @media (max-width: $mobile-xs){
+            padding-top 0    
+        }
+    }
+    &__link{
+        font-size 1rem
+        color $white  
+        text-transform uppercase
+        transition color .3s linear
+        font-family $text
+        &--dark{
+            color $dark  
+            @media (max-width: $tablet){
+                color $white    
+            }  
+        }
+        @media (max-width: $tablet){
+            margin-bottom 2rem 
+        }
+        &:hover{
+            color: $accent
+        }
+    }
+    &__search{
+        width 16% 
+        display flex
+        justify-content flex-end 
+        align-items center  
+        @media (max-width: $tablet){
+            width 100%  
+            justify-content center
+            margin-bottom 2rem
+        }
+        img{
+            cursor pointer
+            margin-left 0.5rem
+        }
+    }
+    &__input{
+        background-color transparent
+        border 1px solid $gray
+        border-radius .3em  
+        padding .5em 1em  
+        width 0
+        opacity 0
+        transition width .3s linear
+        &:focus{
+            outline: 1px solid $white    
+        }
+        &::placeholder{
+            color $white    
+        }
+        &--dark::placeholder{
+            color $dark 
+            @media (max-width: $tablet){
+                color $white    
+            }      
+        }
+    }
+    
+}
+.header-container--open{
+    margin-left 0    
+}
+.header.fixed{
+    @media (max-width: $tablet){
+        background-color transparent 
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding-bottom 1rem
+    }
+}
+.header__input.open{
+    width 100%
+    opacity 1   
+}
+.header-social{
+    display flex
+    justify-content space-between
+    &__item{
+        width 30px
+        height 30px
+        border-radius 50%
+        background-color $light   
+        margin-left .6rem 
+        display flex
+        justify-content center
+        align-items center
+        transition background-color .3s linear
+        &:hover{
+            background-color $gray
+            cursor pointer    
+        }
+    }
+}
+
+/* Burger
+===================*/
+.burger{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 2.5rem;
+    height: 1.5rem;
+    border:none;
+    cursor: pointer;
+    position: relative;
+    z-index: 3001;
+    margin-top 1.5rem
+    margin-left 1rem
+    &:focus{outline: none;}
+    @media (max-width: $tablet){
+        display: flex;
+    }
+    &__open .burger__line{
+        background-color: transparent;
+        &::before{
+            transform: rotate(45deg) ;
+        }
+        &::after{
+            transform: rotate(-45deg) ;
+        }
+    }
+    &--helper{
+        position absolute
+        top 0
+        left 0    
+    }
+    &__line{
+        height: 2px;
+        width: 100%;
+        background-color: $accent;
+        transition: background-color .3s linear;
+        &::before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            transform: translateY(.73rem);
+            background-color: $accent;
+            transition: transform .3s linear;
+        }
+        &::after{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            transform: translateY(-.73rem);
+            background-color: $accent;
+            transition: transform .3s linear;
+        }
+    }
+}
+
+
+/* Hero
+===================*/
+.hero{
+    background url('../img/home/hero-bg.jpg') no-repeat top center
+    height 100vh
+    width 100%
+    background-size cover
+    &__content{
+        width 100%
+        height 100%
+        display flex
+        justify-content center
+        align-items center    
+        background-color rgba(0,0,0, .5)
+    }
+    &__item{
+        text-align center
+    }
+    &__heading{
+        font-size rem(32)
+        color $white
+        font-family $heading
+        text-transform uppercase    
+        font-weight 600
+    }
+    &__heading3{
+        font-size rem(18)
+        color $white
+        font-family $text
+        text-transform uppercase  
+        font-weight 400
+        margin 1.2rem 0
+    }
+    &__deliver{
+        color $accent    
+    }
+    
+}
+/* Our services
+===================*/
+.services{
+    padding 2rem 0
+    &__container{
+        display flex
+        justify-content space-between
+        flex-wrap wrap    
+        margin-top 3rem
+        @media (max-width: $tablet){
+            justify-content center     
+        }
+    }
+    &__item{
+        width 32%
+        text-align center
+        @media (max-width: $tablet){
+            width 90% 
+            margin-bottom 2rem    
+        }    
+    }
+    &__title{
+        font-size rem(22)
+        color $dark
+        font-family $heading
+        text-transform uppercase  
+        font-weight 700  
+        margin 1rem 0
+    }
+    &__text{
+        font-family $text
+        font-size 1rem
+        color $gray
+        font-weight 500  
+        line-height 1.5  
+        margin-bottom 1rem
+    }  
+    &__link{
+        font-family $text
+        font-size 1rem
+        color $accent
+        font-weight 400  
+        text-transform capitalize
+        &:hover{
+            text-decoration underline
+        }
+    }  
+}
+/* Our works
+===================*/
+.works{
+    padding 2rem 0
+    background-color $light
+    &__container{
+        display flex
+        justify-content space-between
+        flex-wrap wrap    
+    }
+    &__item{
+        width 32%
+        text-align center 
+        margin-top 2rem
+        margin-bottom -8rem 
+        cursor pointer
+        @media (max-width: $tablet){
+            width 100% 
+            margin-bottom 2rem   
+        }  
+    }
+    &__title{
+        font-size rem(18)
+        color $dark
+        font-family $heading
+        text-transform uppercase  
+        font-weight 700  
+        margin 1rem 0
+    }
+    &__bottom{
+        margin 10rem 0 2rem
+        text-align center
+        @media (max-width: $tablet){
+            margin-top 3rem   
+        }  
+        .container{
+            border-top 1px solid $gray
+            padding-top 2rem 
+        }
+    }
+}
+
+/* Footer
+===================*/
+.footer{
+    background-color $dark
+    padding 3rem 0 2rem
+    &__top{
+        display flex   
+        justify-content space-between 
+        flex-wrap wrap
+        border-bottom 1px solid $gray
+        padding-bottom 3rem
+    }
+    &__item{
+        &:first-child{
+            width 35%   
+            @media (max-width: $tablet){
+                width 45%     
+            }
+            @media (max-width: $mobile){
+                width 100%     
+            }
+        }
+        &:nth-child(2){
+            @media (max-width: $tablet){
+                width 50%     
+            }
+            @media (max-width: $mobile){
+                width 100%  
+                margin-top 2rem   
+            }
+        }
+        &:nth-child(3){
+            @media (max-width: $tablet){
+                width 20%
+                margin-top 2rem     
+            }
+            @media (max-width: $mobile){
+                width 100%     
+            }
+        }
+        &:last-child{
+            @media (max-width: $tablet){
+                width 50%
+                margin-top 2rem     
+            }
+            @media (max-width: $mobile){
+                width 100%     
+            } 
+        }
+        width 18%  
+    }
+    &__heading{
+        font-size rem(20)
+        color $white
+        font-family $heading
+        text-transform uppercase  
+        font-weight 500 
+        margin-bottom 2rem 
+    }
+    &__text{
+        color $gray
+        font-size rem(14)
+        line-height 1.7
+        font-family $text
+    }
+    &__bottom{
+        display flex
+        justify-content space-between
+        flex-wrap wrap   
+        margin-top 2rem
+        .copy{
+            color $gray
+            font-size rem(14)
+            line-height 1.7
+            font-family $text
+            text-transform uppercase 
+            span{
+                color $white
+            }
+        } 
+    }
+}
+.footer-row1, .phone{
+    color $gray
+    font-size rem(17)
+    line-height 2
+    font-family $text
+}
+.footer-nav{
+    &__item{
+        display flex 
+        align-items center
+        margin-bottom 1.2rem 
+        &:first-child{
+            padding-top .5rem    
+        }  
+    }
+    &__link{
+        color $gray
+        font-size rem(17) 
+        font-family $text
+        cursor pointer
+        transition color .3s linear
+        margin-left .7rem
+        &:hover{
+            color $white   
+        }
+    }    
+}
+.footer-logo{
+    display flex
+    justify-content space-between
+    margin-bottom 1rem
+    &__text{
+        font-family $logo   
+        font-size rem(27) 
+        color $white   
+    }   
+    &__social{
+        display flex
+        justify-content space-between
+        align-items center
+    } 
+    &__brand{
+        width 30px
+        height 30px
+        border-radius 50%
+        background-color $light   
+        margin-left .6rem 
+        display flex
+        justify-content center
+        align-items center
+        transition background-color .3s linear
+        &:hover{
+            background-color $gray
+            cursor pointer    
+        }
+    } 
+   
+}
+
+.footer-form{
+    display flex
+    justify-content flex-start
+    margin-top 1rem
+    &__email{
+        background-color #4E4C4D
+        border none
+        padding .7em 1em
+        color $white
+        font-size rem(15)
+        font-family $text
+        width 100%
+        height auto
+        &:focus{
+            outline none  
+            box-shadow 1px 3px 18px 4px #000000
+  
+        } 
+    }
+    &__btn{
+        background-color $gray
+        border none
+        padding .7em 1em
+        color $white
+        font-size rem(15)
+        font-family $text  
+        text-transform uppercase   
+        cursor pointer
+        margin-left 0.4rem
+    }    
+}
+.footer-subnav{
+    &__link{
+        color $gray
+        font-size rem(14)
+        line-height 1.7
+        font-family $text
+        text-transform uppercase 
+        font-weight 500 
+        transition color .3s linear
+        &:hover{
+            color $white
+        }
+        &::after{
+            content "/"
+            margin-right 0.3rem
+        } 
+        &:last-child::after{
+            display none    
+        }  
+    }
+}
+
+/* Slick slider
+===================*/
+.slick-slide{
+    position relative
+    &:focus{
+        outline none   
+    }  
+}
+.slick-prev, .slick-next{
+    border-radius 50%
+    background-color $white
+    width 40px
+    height 40px  
+    color transparent 
+    border none
+    font-size 0 
+    cursor pointer
+    &:focus{
+        outline none   
+    } 
+    @media (max-width: $tablet){
+        display none !important 
+    }  
+}
+
+.slick-prev{
+    position absolute
+    top 50%
+    left 5% 
+    z-index 100
+    &::before{
+        content '\f053'
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
+        font-size 2rem    
+        color $dark
+        display flex
+        justify-content center
+        padding-top 0.4rem
+    } 
+}
+.slick-next{
+    position absolute
+    top 50%
+    right 5% 
+    &::before{
+        content '\f054'
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
+        font-size 2rem    
+        color $dark
+        display flex
+        justify-content center
+        padding-top 0.4rem
+    }   
+}
+ li.slick-active{
+    button{
+        background-color $accent
+    }
+   
+}
+.slick-dots{
+    position absolute
+    display flex
+    justify-content center
+    top 90%
+    left auto
+    right auto 
+    @media (max-width: $mobile){
+        top 85%
+    } 
+    li{
+        margin-left 0.5rem
+        @media (max-width: $mobile){
+            margin-left 1.5rem 
+        }
+        button{
+            width 18px
+            height 18px
+            border none
+            color transparent
+            border-radius 50%
+            transition background-color .3s linear
+            &:hover{
+                cursor pointer
+                outline none   
+            }
+            &:focus{
+                outline none  
+            }
+        }
+    }
+}
+
+/* About us
+===================*/
+.title-img{
+    background url('../img/about/img.png') no-repeat top center
+    height 100px
+    width 100%  
+    background-size cover
+    display flex
+    align-items center
+    justify-content flex-start
+    margin-top 1rem
+    @media (max-width: $tablet){
+        margin-top 0  
+        text-align center
+    } 
+    &__container{
+        font-size rem(30)
+        color $white
+        font-family $heading
+        text-transform uppercase  
+        font-weight 500 
+        width 100%
+    } 
+}
+/* Mission
+===================*/
+.mission{
+    padding 3rem 0 
+    &__content{
+        display flex
+        justify-content space-between
+        flex-wrap wrap  
+        margin-top 2rem  
+        @media(max-width $tablet){
+            justify-content center
+        }   
+    }   
+    &__item{
+        flex-basis 31% 
+        @media(max-width $tablet){
+            flex-basis 90%   
+            text-align center 
+        }   
+    }
+    &__title{
+        font-size rem(22)
+        color $dark
+        font-family $heading
+        text-transform uppercase  
+        font-weight 700 
+        margin 1rem 0    
+    }
+    &__text{
+        color $gray
+        font-size rem(14)
+        line-height 1.7
+        font-family $text 
+        font-weight 500     
+    }
+}
+
+/* About us: our team
+===================*/
+.about-team{
+    background-color $light
+    padding 3rem 0  
+    &__content{
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        margin-top 3rem
+        @media(max-width $mobile){
+            justify-content center
+        }    
+    }  
+    &__item{
+        flex-basis 23%
+        @media(max-width $tablet){
+            flex-basis 48% 
+            text-align center 
+            margin-bottom 2rem  
+        }  
+        @media(max-width $mobile){
+            flex-basis 90% 
+        } 
+    }
+    &__name{
+        font-size rem(17)
+        color $dark
+        font-family $heading
+        text-transform uppercase  
+        font-weight 700 
+        margin .7rem 0   
+    }
+    &__prof{
+        color $gray
+        font-size rem(14)
+        font-family $text 
+        font-weight 500  
+        margin-bottom .7rem
+        padding-bottom .7rem
+        border-bottom 1px solid $gray  
+    }
+    &__text{
+        color $gray
+        font-size rem(14)
+        font-family $text 
+        font-weight 500    
+    }
+}
+.about-team-social{
+    display flex
+    margin-top 1rem
+    @media(max-width $tablet){
+        justify-content center 
+    }
+    &__item{
+        width 30px
+        height 30px
+        border-radius 50%
+        background-color $white   
+        margin-right .6rem 
+        display flex
+        justify-content center
+        align-items center
+        transition background-color .3s linear
+        &:hover{
+            background-color $gray
+            cursor pointer    
+        }    
+    }    
+}
+/* About us: join us
+===================*/
+.about-join-us{
+    padding 3rem 0    
+    display flex
+    flex-direction column
+    align-items center
+}
+
+/* Archive
+===================*/
+.archive{
+    padding 3rem 0
+    &__container{
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        @media(max-width $tablet){
+            justify-content center
+        }  
+    } 
+    &__main{
+        flex-basis 65%
+        @media(max-width $tablet){
+            flex-basis 90% 
+            text-align center 
+            margin-bottom 2rem  
+        }    
+    }
+      
+}
+.archive-main{
+    &__item{
+        display flex
+        margin-bottom 1rem    
+    }
+    &__link{
+        margin-left 0.3em  
+        color $gray
+        font-size rem(17)
+        font-family $text 
+        font-weight 500   
+    }
+    &__text{
+        color $gray
+        font-size rem(17)
+        font-family $text 
+        font-weight 500
+        line-height 1.7   
+    } 
+    &__heading{
+        color $dark
+        font-size rem(19)
+        font-family $text
+        font-weight 600 
+        text-transform uppercase 
+        margin 1.5rem 0  
+    } 
+}
+.deliver-aside{
+    flex-basis 30% 
+    @media(max-width $tablet){
+        flex-basis 90% 
+        text-align center  
+    }  
+    &__heading{
+        color $dark
+        font-size rem(19)
+        font-family $text
+        font-weight 600 
+        text-transform uppercase 
+        margin 1.5rem 0 
+        &:first-child{
+            margin-top 0    
+        }
+    }
+    &__text{
+        color $gray
+        font-size rem(17)
+        font-family $text 
+        font-weight 400
+        line-height 1.4   
+    }
+    &__post{
+        color $gray
+        font-size rem(17)
+        font-family $text 
+        font-weight 400
+        text-transform capitalize
+        padding-bottom 1rem
+        margin-bottom 1rem
+        border-bottom 1px solid $gray
+        display block 
+        cursor pointer  
+    }
+    &__images{
+        display flex
+        justify-content space-between  
+        flex-wrap wrap
+        max-width 370px
+        width 100%  
+        margin 0 auto
+    }  
+    &__img{
+        flex-basis 25%  
+        margin-top 1rem
+    }  
+}
+.twitter-widget{
+    color $gray
+    font-size rem(17)
+    font-family $text 
+    font-weight 400    
+    margin-bottom 1rem 
+    &__time{
+        color $accent
+        font-size rem(17)
+        font-family $text 
+        font-weight 400    
+        margin-bottom 1rem  
+        padding-bottom 1rem
+        border-bottom 1px solid $gray    
+    }  
+    span{
+        color $accent
+    }
+}
+
+
+/* Blog
+===================*/
+.blog{
+    padding 3rem 0  
+    &__heading{
+        color $dark
+        font-size rem(19)
+        font-family $text
+        font-weight 500 
+        text-transform uppercase 
+        margin 1.5rem 0     
+    } 
+    &__container{
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        @media(max-width $tablet){
+            justify-content center
+        }  
+    } 
+    &__video{
+        width 100% 
+        padding-top 2rem
+        border-top 1px solid $gray  
+        &:focus{
+            outline none    
+        }   
+    } 
+    &__audio{
+        width 100% 
+        padding-top 2rem
+        border-top 1px solid $gray 
+        &:focus{
+            outline none    
+        }    
+    } 
+    &__aside{
+        flex-basis 30% 
+        @media(max-width $tablet){
+            flex-basis 90% 
+            text-align center  
+        }       
+    }
+  
+}
+.blog-main{
+    flex-basis 65%
+    @media(max-width $tablet){
+        flex-basis 90% 
+        text-align center 
+        margin-bottom 2rem  
+    }  
+    &__item{
+        border-bottom 1px solid $gray    
+    }
+    &__tags{
+        display flex
+        justify-content flex-start
+        flex-wrap wrap 
+        margin-top 1.5rem   
+    }
+    &__icon{
+        color $dark
+        margin-right .5em
+        font-size rem(15)
+    }
+    &__text{
+        color $gray
+        font-size rem(17)
+        font-family $text 
+        font-weight 400 
+        line-height 1.4
+        margin 1.5rem 0
+    }
+    &__img{
+       img{
+           display block
+           width 100%
+           height auto
+       } 
+    }
+    &__tag{
+        margin-right 0.7em
+        background-color $light
+        padding .5em 1em
+        display flex
+        justify-content center
+        color $gray
+        font-size rem(15)
+        font-family $text 
+        font-weight 400
+        text-transform uppercase
+        cursor pointer
+        margin-top 1rem
+    }
+}
+
+.page{
+    display flex
+    justify-content flex-start
+    margin-top 3rem
+    &__item{
+        margin-right .3rem
+        transition background-color .3s linear, color .3s linear
+        padding .7em 1.2em
+        font-family $text
+        &:hover{
+            background-color $accent
+            cursor pointer    
+            color $white
+        }    
+        &.active{
+            background-color $accent 
+            color $white 
+        }
+    }
+    
+}
+
+/* Contact us
+===================*/
+.contact{
+    padding 3rem 0   
+
+    &__content{
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        border-top 1px solid $gray
+        border-bottom 1px solid $gray
+        padding-bottom 3rem
+        margin-top 2rem
+        margin-bottom 2rem
+        @media(max-width $tablet){
+            justify-content center
+        }    
+    } 
+    &__main{
+        flex-basis 65%
+        @media(max-width $tablet){
+            flex-basis 90% 
+            text-align center 
+            margin-bottom 2rem  
+        }     
+    } 
+    &__aside{
+        flex-basis 30%
+        @media(max-width $tablet){
+            flex-basis 90% 
+            text-align center 
+            margin-bottom 2rem  
+        }     
+    } 
+    &__heading{
+        color $dark
+        font-size rem(19)
+        font-family $text
+        font-weight 500 
+        text-transform uppercase 
+        margin 1.5rem 0  
+    }
+    &__text{
+        color $gray
+        font-size rem(17)
+        font-family $text 
+        font-weight 400 
+        line-height 1.4
+        margin 1.5rem 0
+    }
+    &__h4{
+        color $dark
+        font-size rem(17)
+        font-family $text
+        font-weight 500 
+        text-transform uppercase 
+        margin 1rem 0  
+        span{
+            color red
+        }
+    }
+    &__desc{
+        color $gray
+        font-size rem(14)
+        font-family $text 
+        font-weight 400 
+        line-height 1.4
+        margin 1rem 0
+        display block
+    }
+    &__input{
+        background-color $light
+        border none
+        max-width 350px
+        width 100%
+        font-size 1rem
+        font-family $text
+        padding .7em 1em
+        &:focus{
+            outline none    
+        }
+    }
+    &__textarea{
+        background-color $light
+        border none
+        max-width 550px
+        max-height 300px
+        width 100%
+        height 100%
+        font-size 1rem
+        font-family $text
+        padding .7em 1em
+        display block
+        resize none
+        &:focus{
+            outline none    
+        }    
+        @media (max-width $tablet){
+            margin 0 auto    
+        }
+    }
+}   
+
+.contact-info{
+    &__item{
+        display flex
+        justify-content space-between 
+        margin-bottom 1rem   
+    }    
+    &__left{
+        color $dark
+        font-size rem(15)
+        font-family $text 
+        font-weight 500 
+    }    
+    &__right{
+        color $gray
+        font-size rem(15)
+        font-family $text 
+        font-weight 400 
+    }    
+}
+
+/* Portfolio
+===================*/
+
+.portfolio{
+    padding 3rem 0 
+
+    &__content{
+        background-color $light 
+        margin 4rem 0 
+    }
+    &__item{
+        flex-basis 28%
+        margin-bottom -2rem
+        display flex
+        flex-direction column
+        @media(max-width $tablet){
+            flex-basis 90% 
+            text-align center 
+            margin-bottom 2rem
+            align-items center
+        }  
+    }
+    &__h3{
+        color $dark
+        font-size rem(17)
+        font-family $text
+        font-weight 500 
+        text-transform uppercase  
+    }  
+    &__text{
+        color $gray
+        font-size rem(15)
+        font-family $text
+        font-weight 400   
+        line-height 1.7
+        margin 1rem 0
+    }  
+    &__img{
+        margin-left -1.5rem 
+        @media(max-width $tablet){
+            margin 0 auto
+        }  
+        img{
+            display block
+        }  
+    }
+   
+}
+   
+
+
+.portfolio-content{
+    padding-top 1rem
+    display flex
+    justify-content space-between
+    flex-wrap wrap
+    @media(max-width $tablet){
+        justify-content center
+    } 
+} 
+
+.portfolio-nav{
+    margin 2rem 0
+    display flex
+    flex-wrap wrap
+    @media(max-width $mobile){
+        justify-content center
+    } 
+    &__link{
+        color $dark
+        font-size rem(17)
+        font-family $text
+        font-weight 500 
+        text-transform uppercase
+        transition color .3s linear 
+        margin-bottom 1rem
+        &:hover{
+            color $accent  
+            &::after{
+                color $dark    
+            }  
+        }
+        &:last-child::after{
+            display none   
+        }
+        &::after{
+            content '/'
+            font-size rem(17)
+            font-family $text 
+            font-weight 500 
+            margin 0 .5em   
+        }     
+    }    
+}
+
+
+/* Services page
+===================*/
+.our-services{
+    padding 3rem 0
+}
+
+.our-services-top{
+    display flex
+    justify-content space-between
+    flex-wrap wrap
+    @media(max-width $mobile){
+        justify-content center
+    } 
+    &__item{
+        flex-basis 47%  
+        display flex
+        justify-content space-between
+        align-items center
+        margin 3rem 0 2rem
+        @media(max-width $mobile){
+            flex-basis 90%
+        }   
+    }
+    &__icon{
+        margin-right 2rem    
+    }
+    &__h3{
+        color $dark
+        font-size rem(19)
+        font-family $text
+        font-weight 500 
+        text-transform uppercase  
+        margin-bottom 1rem   
+    }
+    &__text{
+        color $gray
+        font-size rem(15)
+        font-family $text
+        font-weight 400 
+        text-transform uppercase  
+        line-height 1.7   
+    }
+}
+
+.our-services-middle{
+    padding 3rem
+    background-color $light    
+    
+    &__content{
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        @media(max-width $mobile){
+            justify-content center
+        } 
+    }
+   
+    &__item{
+        flex-basis 24%  
+        margin 2rem 0
+        background-color $white
+        transition transform .3s linear, box-shadow .3s linear
+        margin-bottom -5rem
+        @media(max-width $tablet){
+            flex-basis 48%
+            margin-bottom 1rem
+        }   
+        @media(max-width $mobile){
+            flex-basis 100%
+        }   
+        &:hover{
+            transform scale(1, 1.1)  
+            box-shadow 1px 3px 12px 2px $accent
+            cursor pointer  
+        }
+    }
+    &__h3{
+        color $white
+        font-size rem(19)
+        font-family $text
+        font-weight 500 
+        text-transform uppercase
+        background-color $accent
+        text-align center  
+        padding .7em 0  
+    }
+    &__price{
+        color $dark
+        font-size rem(32)
+        font-family $text
+        font-weight 500 
+        background-color $white
+        text-align center  
+        padding .5em 0  
+        display block
+    }
+    &__text{
+        color $gray
+        font-size rem(17)
+        font-family $text
+        font-weight 400 
+        background-color $white
+        text-align center  
+        padding .7em 0
+        margin 0 1.5em
+        text-transform capitalize
+        display block
+        border-top 1px solid $gray
+    }
+    &__footer{
+        background-color $accent
+        text-align center  
+        padding 1em 0     
+    }
+}
+.our-services-bottom{
+    margin 5rem 0 3rem 
+    &__content{
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        border-top 1px solid $gray
+        border-bottom 1px solid $gray
+        padding 2rem 0
+        @media(max-width $tablet){
+            justify-content center
+        }  
+    }
+      
+    &__item{
+        flex-basis 30%  
+        margin 2rem 0
+        @media(max-width $tablet){
+            flex-basis 90%
+        }   
+    }
+    &__h3{
+        color $dark
+        font-size rem(19)
+        font-family $text
+        font-weight 500 
+        text-transform uppercase
+    }
+    &__text{
+        color $gray
+        font-size rem(15)
+        font-family $text
+        font-weight 400 
+        line-height 1.7
+        margin-top 1rem
+    }
+}
